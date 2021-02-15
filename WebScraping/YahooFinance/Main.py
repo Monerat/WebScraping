@@ -1,6 +1,4 @@
 from FuncAcao import WebScrappingAcao
-from FuncBDR import WebScrappingBDR
-from FuncFII import WebScrappingFII
 import pandas as pd
 import numpy as np
 
