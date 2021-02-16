@@ -18,6 +18,26 @@ def WebScrappingAcao(Codigo):
             break
     return Indicadores
 
+'''
+df.columns=["Cod Acao","Cotacao Atual","MIN 52 Semanas",
+"MAX 52 Semanas","DY 12 Meses","Valorizacao 12 Meses",
+"Tipo","Tag Along","Liquidez Media Diaria",
+"Participacao no IBOV","Mercado de Opcoes","D.Y","P/L","PEG RATIO","P/VP","EV/EBITDA",
+"EV/EBIT","P/EBITDA","P/EBIT","VPA","P/ATIVO","LPA","P/SR",
+"P/CAP.GIRO","P/ATIVO CIRC LIQ","DIV LIQUIDA/PL","DIV LIQUIDA/EBITDA",
+"DIV LIQUIDA/EBIT","PL/ATIVOS","PASSIVO/ATIVOS","LQ CORRENTE",
+"Margem Bruta","Margem EBTIDA","Margem EBIT","Margem Liquida",
+"ROE","ROA","ROIC","GIRO ATIVOS","CAGR RECEITAS 5 ANOS","CAGR LUCROS 5 ANOS",
+"Tomador (Media)","Doador (Media)","Numero de Acoes","Volume",
+"Proventos Ano Passado","Proventos Ano Atual","Proventos Comparacao",
+"Proventos Provisionado","Proventos Comparacao+Provisionado",
+"Patrimonio Liquido","Ativos","Ativos Ciculante","Divida Bruta",
+"Disponibilidade","Divida Liquida","Valor de Mercado","Valor de Firma","Numero Total de Papeis"]
+
+df = df.drop(columns=["Mercado de Opcoes","Tomador (Media)","Doador (Media)","Numero de Acoes","Volume",
+"Proventos Ano Passado","Proventos Ano Atual","Proventos Comparacao",
+"Proventos Provisionado","Proventos Comparacao+Provisionado"])
+'''
 #Estrutura da lista Indicadores
 #Codigo da Ação 0
 #Cotação Atual 1

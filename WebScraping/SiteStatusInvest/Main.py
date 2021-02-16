@@ -1,4 +1,5 @@
 from FuncAcao import WebScrappingAcao
+from FuncAcao2 import WebScrappingAcao2
 from FuncBDR import WebScrappingBDR
 from FuncFII import WebScrappingFII
 import pandas as pd
@@ -8,28 +9,17 @@ AllStocks=[]
 with open("CodAcoes.txt","r") as Data:
     Linhas = Data.read().split("\n")
     for n in Linhas:
-        AllStocks.append(WebScrappingAcao(n))
+        AllStocks.append(WebScrappingAcao2(n))
     Data.close()
 
 df = pd.DataFrame(AllStocks)
-df.columns=["Cod Acao","Cotacao Atual","MIN 52 Semanas",
-"MAX 52 Semanas","DY 12 Meses","Valorizacao 12 Meses",
-"Tipo","Tag Along","Liquidez Media Diaria",
-"Participacao no IBOV","Mercado de Opcoes","D.Y","P/L","PEG RATIO","P/VP","EV/EBITDA",
-"EV/EBIT","P/EBITDA","P/EBIT","VPA","P/ATIVO","LPA","P/SR",
-"P/CAP.GIRO","P/ATIVO CIRC LIQ","DIV LIQUIDA/PL","DIV LIQUIDA/EBITDA",
-"DIV LIQUIDA/EBIT","PL/ATIVOS","PASSIVO/ATIVOS","LQ CORRENTE",
-"Margem Bruta","Margem EBTIDA","Margem EBIT","Margem Liquida",
-"ROE","ROA","ROIC","GIRO ATIVOS","CAGR RECEITAS 5 ANOS","CAGR LUCROS 5 ANOS",
-"Tomador (Media)","Doador (Media)","Numero de Acoes","Volume",
-"Proventos Ano Passado","Proventos Ano Atual","Proventos Comparacao",
-"Proventos Provisionado","Proventos Comparacao+Provisionado",
-"Patrimonio Liquido","Ativos","Ativos Ciculante","Divida Bruta",
-"Disponibilidade","Divida Liquida","Valor de Mercado","Valor de Firma","Numero Total de Papeis"]
+df.columns=["Cod Acao","Valor atual","D.Y","P/L","PEG Ratio","P/VP","EV/EBITDA","EV/EBIT","P/EBITDA",
+"P/EBIT","VPA","P/Ativo","LPA","P/SR","P/Cap. Giro","P/Ativo Circ. Liq.","Dív. líquida/PL",
+"Dív. líquida/EBITDA","Dív. líquida/EBIT","PL/Ativos","Passivo/Ativos","Liq. corrente","M. Bruta",
+"M. EBITDA","M. EBITDA","M. Líquida","ROE","ROA","ROIC","Giro ativos","CAGR Receitas 5 anos",
+"CAGR Lucros 5 anos","Patrimônio líquido","Ativos","Ativo circulante","Dívida bruta","Disponibilidade",
+"Dívida líquida","Valor de mercado","Valor de firma","Nº total de papeis"]
 
-df = df.drop(columns=["Mercado de Opcoes","Tomador (Media)","Doador (Media)","Numero de Acoes","Volume",
-"Proventos Ano Passado","Proventos Ano Atual","Proventos Comparacao",
-"Proventos Provisionado","Proventos Comparacao+Provisionado"])
 df.to_csv(r"C:\Users\gmone\Desktop\EstudoAcoes\BancodeDados\BancoDadosAcoes.csv",index=False)
 
 AllBDRs=[]
