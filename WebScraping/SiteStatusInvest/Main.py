@@ -2,6 +2,7 @@ from FuncAcao import WebScrappingAcao
 from FuncAcao2 import WebScrappingAcao2
 from FuncBDR import WebScrappingBDR
 from FuncFII import WebScrappingFII
+from FormulasValuation import GrahamRev
 import pandas as pd
 import numpy as np
 
@@ -20,6 +21,18 @@ df.columns=["Cod Acao","Valor atual","D.Y","P/L","PEG Ratio","P/VP","EV/EBITDA",
 "CAGR Lucros 5 anos","Patrimônio líquido","Ativos","Ativo circulante","Dívida bruta","Disponibilidade",
 "Dívida líquida","Valor de mercado","Valor de firma","Nº total de papeis"]
 
+valuation=[]
+Selic = 2
+
+for linha in range(0, len(df.index), 4):
+    valuation.append(GrahamRev(df.iloc[linha,12],df.iloc[linha,31],Selic))
+    valuation.append(GrahamRev(df.iloc[linha+1,12],df.iloc[linha+1,31],Selic))
+    valuation.append(GrahamRev(df.iloc[linha+2,12],df.iloc[linha+2,31],Selic))
+    valuation.append(GrahamRev(df.iloc[linha+3,12],df.iloc[linha+3,31],Selic))
+
+df['Valuation Graham'] = valuation
+df['Valuation Graham'] = df['Valuation Graham'].astype(str).str.replace('.',',')
+print(df)
 df.to_csv(r"C:\Users\gmone\Desktop\EstudoAcoes\BancodeDados\BancoDadosAcoes.csv",index=False)
 
 AllBDRs=[]
